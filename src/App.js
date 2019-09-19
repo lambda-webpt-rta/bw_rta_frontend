@@ -13,6 +13,8 @@ function App() {
       <NavBar />
       <Route path="/signup" component={SignUpForm} />
       <Route exact path="/" component={DashBoard} />
+      <Route path="/login" component={LoginForm} />
+
     </div>
   );
 }
