@@ -15,6 +15,9 @@ const SignUpForm=( props ) => {
 
 
 
+
+const SignUpForm=() => {
+
     return (
         <form onSubmit={registerUser}>
             <label>Email
@@ -30,4 +33,8 @@ const SignUpForm=( props ) => {
         </form>
     )
 }
+
 export default withRouter( SignUpForm )
+
+
+
