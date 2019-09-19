@@ -1,21 +1,18 @@
 import React from "react"
-// import SignUpForm from './SignUpForm';
-import {Link,Route} from "react-router-dom";
+import {Link} from "react-router-dom";
 import SignUpForm from "./SignUpForm";
 
-const LoginForm = () => {
+const LoginForm=() => {
 
-        return ( 
-        <div> 
-            <h1>
-           Login
-            </h1>
-            <Link to="/signup">sign up</Link>
-            <Route path="/signup" component={SignUpForm}/>
-         </div> 
+    return (
+        <div>
+            <h1>LoginForm</h1>
+            <div>or</div>
+            <Link to="/signup">sign up here</Link>
 
+        </div>
 
-        )
+    )
 
-        } 
-        export default LoginForm;
+}
+export default LoginForm;
