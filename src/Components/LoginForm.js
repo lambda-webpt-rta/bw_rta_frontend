@@ -8,7 +8,8 @@ const LoginForm=() => {
         <div>
             <h1>LoginForm</h1>
             <div>or</div>
-            <Link to="/signup">sign up here</Link>
+            <h2>Don't have an account yet?</h2>
+            <Link to="/signup">Create an account</Link>
 
         </div>
 
