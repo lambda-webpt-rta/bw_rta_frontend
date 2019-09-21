@@ -2,28 +2,25 @@ import React, {useState, useEffect} from "react";
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import {Button} from 'reactstrap';
+import {Button,Label} from 'reactstrap';
+import LoginForm from './LoginForm';
 
 
-export const SignUpForm=( {values, errors, touched, isSubmitting, users, setUsers, status, submitForm, handleChange}, props ) => {
+const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
   const initialUser={email: '', password: '', username: '', }
   const [newUser, setNewUser]=useState( initialUser );
 
-  useEffect( () => {
-    if( status ) {
 
-    }
-  }, [status] )
 
 
   return (
     <Form >
 
 
-      <label>Username
+      <Label>Username
         <div>{touched.username&&errors.username&&<p>{errors.username}</p>}
           <Field type="username" name="username" placeholder="username" /></div>
-      </label>
+      </Label>
       <label>Email
         <div>{touched.email&&errors.email&&<p>{errors.email}</p>}
           <Field type="email" name="email" placeholder="email" /></div>
@@ -32,7 +29,7 @@ export const SignUpForm=( {values, errors, touched, isSubmitting, users, setUser
         <div>{touched.password&&errors.password&&<p>{errors.password}</p>}
           <Field type="password" name="password" placeholder="password" /></div>
       </label>
-     
+
       <div><Button type="submit" disabled={isSubmitting} >Register</Button></div>
 
     </Form>
@@ -47,6 +44,7 @@ const FormikSignupForm=withFormik( {
       password: props.password||'',
       username: props.username||'',
     }
+    console.log(props)
   },
 
   validationSchema: Yup.object().shape( {
@@ -66,6 +64,7 @@ const FormikSignupForm=withFormik( {
       axios.post( "https://reqres.in/api/register", values )
         .then( res => {
           console.log( res, ",`${res.data}`", `${res.data}` ); // Data was created successfully and logs to console
+           localStorage.setItem("token",res.data.user.token||res.data.token);
           resetForm();
           setSubmitting( false );
           submitForm( false )
@@ -73,7 +72,7 @@ const FormikSignupForm=withFormik( {
 
         } )
         .catch( err => {
-          console.log( err ); // There was an error creating the data and logs to console
+          console.error( err ); // There was an error creating the data and logs to console
           setSubmitting( false );
         } );
     }
