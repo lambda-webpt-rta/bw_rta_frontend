@@ -1,16 +1,20 @@
 import React from "react"
- 
+import {Link} from 'react-router-dom';
+import Dashboard from './Dashboard';
+import {Nav}from 'reactstrap'
 
-const NavBar = () => {
 
-        return ( 
-        <div>         
-           <h1>
-           NavBar
+const NavBar=() => {
+
+   return (
+      <Nav>
+         <h1>
+            <Link to="/">🏠</Link>
+            NavBar
            </h1>
-        </div>
+      </Nav>
 
 
-        )
-        } 
-        export default NavBar;
+   )
+}
+export default NavBar;
