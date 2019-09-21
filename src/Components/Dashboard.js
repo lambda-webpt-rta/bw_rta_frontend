@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 
 function Dashboard() {
   return (
-    < div>
+    <div>
       <LoginForm />
     </div>
   );
