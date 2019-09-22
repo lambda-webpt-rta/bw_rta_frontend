@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
 import {Route} from 'react-router-dom';
-import LoginForm from './LoginForm.js/index.js';
+import LoginForm from './LoginForm.js';
 import SignUpForm from './SignUpForm';
 import Navbar from './Navbar';
 
@@ -10,10 +9,7 @@ import Navbar from './Navbar';
 
 function Dashboard() {
   return (
-    <div >
-   
-   
-     
+    <div>
       <LoginForm />
     </div>
   );
