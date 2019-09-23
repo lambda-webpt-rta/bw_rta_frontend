@@ -3,7 +3,6 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {Button,Label} from 'reactstrap';
-import LoginForm from './LoginForm';
 
 
 const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {

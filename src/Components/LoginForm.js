@@ -3,7 +3,7 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import {Button} from 'reactstrap';
+import {Button, Label} from 'reactstrap';
 
 
 
@@ -15,17 +15,17 @@ const LoginForm=( {values, errors, touched, isSubmitting, status, }, props ) => 
         <Form>
 
             <div>
-                <label>Username
+                <Label>Username
                     <div>{touched.username&&errors.username&&<p>{errors.username}</p>}
                         <Field type="username" name="username" placeholder="Username" />
                     </div>
-                </label>
+                </Label>
 
-                <label>Password
+                <Label>Password
                      <div>{touched.password&&errors.password&&<p>{errors.password}</p>}
                         <Field type="password" name="password" placeholder="password" />
                     </div>
-                </label>
+                </Label>
 
                 <div><Button type="submit" disabled={isSubmitting} >Login</Button></div>
 

@@ -89,15 +89,15 @@ const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
 
       <Label>Date
         <div>{touched.username&&errors.username&&<p>{errors.username}</p>}
-          <Field type="username" name="username" placeholder="username" /></div>
+          <Field type="username" name="username" placeholder="date" /></div>
       </Label>
       <label>Category
         <div>{touched.email&&errors.email&&<p>{errors.email}</p>}
-          <Field type="email" name="email" placeholder="email" /></div>
+          <Field type="email" name="email" placeholder="category" /></div>
       </label>
       <label>Amount
         <div>{touched.password&&errors.password&&<p>{errors.password}</p>}
-          <Field type="password" name="password" placeholder="password" /></div>
+          <Field type="password" name="password" placeholder="amount" /></div>
       </label>
 
       <div><Button type="submit" disabled={isSubmitting} >Submit</Button></div>
