@@ -7,14 +7,16 @@ import {Nav}from 'reactstrap'
 const NavBar=() => {
 
    return (
-      <Nav>
-         <h1>
-            <Link to="/">🏠</Link>
-            NavBar
-           </h1>
-      </Nav>
+      <div>
+         <h1>Receipt Upload App</h1>
+            <Link to="/">Home</Link>
+            <Link to="/signup">New User</Link>
+            <Link to="/">Existing User Login</Link>
+            <Link to="/upload">About Us</Link>
+      </div>
 
 
    )
 }
 export default NavBar;
+
