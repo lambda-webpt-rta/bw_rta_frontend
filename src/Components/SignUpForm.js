@@ -3,6 +3,7 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {Button,Label} from 'reactstrap';
+import {Link} from "react-router-dom";
 
 
 const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
@@ -16,20 +17,20 @@ const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
     <Form >
 
 
-      <Label>Username
+      
+        <h5>Username</h5>
         <div>{touched.username&&errors.username&&<p>{errors.username}</p>}
           <Field type="username" name="username" placeholder="username" /></div>
-      </Label>
-      <label>Email
+          <h5>Email</h5>
         <div>{touched.email&&errors.email&&<p>{errors.email}</p>}
           <Field type="email" name="email" placeholder="email" /></div>
-      </label>
-      <label>Password
+          <h5>Password</h5>
         <div>{touched.password&&errors.password&&<p>{errors.password}</p>}
           <Field type="password" name="password" placeholder="password" /></div>
-      </label>
-
+        <br/>
       <div><Button type="submit" disabled={isSubmitting} >Register</Button></div>
+      <h2>Already have an account?</h2>
+                <Link to="/login">Login</Link>
 
     </Form>
   );

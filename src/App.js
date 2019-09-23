@@ -11,7 +11,7 @@ import Faqs from './Components/Faqs';
 function App() {
   return (
     <div className="App">
-      {/* <img src = './images/receipt.png' /> */}
+      <img src = 'http://digitalgeek.biz/wp-content/uploads/2017/08/icons_to_rasterize_0008_vector-smart-object.png' />
       <Navbar />
       <Route path="/signup" component={FormikSignupForm} />
       <Route exact path="/" component={DashBoard} />
