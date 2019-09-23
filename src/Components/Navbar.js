@@ -8,7 +8,7 @@ const NavBar=() => {
 
    return (
       <div>
-         <h1>Receipt Upload</h1>
+         <h1>Receipt Tracker</h1>
             <Link to="/">Home</Link>
             <Link to="/signup">New User</Link>
             <Link to="/">Existing User Login</Link>
