@@ -1,73 +1,3 @@
-// import React, {useState} from "react";
-// import { withFormik, Form, Field } from 'Formik';
-// import * as Yup from 'yup';
-// import axios from 'axios';
-// import { Button } from 'reactstrap';
-
-
-// export const UploadForm=( props ) => {
-    
-//     const initialUser={email: '', password: '', username: '', }
-//     const [newUser, setNewUser]=useState( initialUser );
-    
-//     const handleChange=( event ) => {
-//         setNewUser( {...newUser, [event.target.name]: event.target.value} );
-//     }
-//     const registerUser=( event ) => {
-//         event.preventDefault();
-//         console.log( newUser, props );
-        
-//     }
-
-
-
-//     return (
-//         <Form onSubmit={registerUser}>
-//             <label>Email
-//             <Field type="text" name="email" placeholder="email"  value={newUser.email} />
-//             </label>
-//             <label>Password
-//             <Field type="text" name="password" placeholder="password"  value={newUser.password} />
-//             </label>
-//             <label>UserName
-//             <Field type="text" name="username" placeholder="username" value={newUser.username} />
-//             </label>
-//             <Button type="submit">Submit</Button>
-
-//         </Form>
-//     )
-// };
-
-// export default withFormik({
-//     mapPropsToValues: (props) => {
-//       return {
-//         email: props.email || '',
-//         password: props.password || '',
-//         username: props.username || '',
-//       }
-//     },
-
-//     validationSchema: Yup.object().shape({
-//         username: Yup.string()
-//           .required("NAME is required"),
-//           email: Yup.string()
-//           .required("EMAIL is required"),
-//         password: Yup.string()
-//           .min(6, "Password must be 6 characters or longer")
-//           .required("Password is required")
-//       }),
-    
-//       handleSubmit: (values, { setStatus }) => {
-//         axios.post('https://lambda-webpt-rta-api.herokuapp.com/', values)
-//           .then((res) => {
-//             setStatus(res.data)
-//           })
-//           .catch((err) => {
-//             console.log('Error:', err)
-//           })
-//       }
-//     })(UploadForm)
-
 import React, {useState, useEffect} from "react";
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
@@ -85,19 +15,32 @@ const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
 
   return (
     <Form >
-
+            <select
+        name="email"
+        value={values.color}
+      >
+        <option value="" label="Select a category" />
+        <option value="Food and Dining" label="Food and Dining" />
+        <option value="Transportation" label="Transportation" />
+        <option value="Household" label="Household" />
+        <option value="Personal Care" label="Personal Care" />
+        <option value="Travel" label="Travel" />
+        <option value="Fitness" label="Fitness" />
+        <option value="Entertainment" label="Entertainment" />
+        <option value="Education" label="Education" />
+        <option value="Pets" label="Pets" />
+        <option value="Clothes" label="Clothes" />
+        <option value="Gifts" label="Gifts" />
+        <option value="Other/Misc" label="Other/Misc" />
+      </select>
 
       <Label>Date
         <div>{touched.username&&errors.username&&<p>{errors.username}</p>}
-          <Field type="username" name="username" placeholder="date" /></div>
+          <Field type="date" name="username" placeholder="Date" /></div>
       </Label>
-      <label>Category
-        <div>{touched.email&&errors.email&&<p>{errors.email}</p>}
-          <Field type="email" name="email" placeholder="category" /></div>
-      </label>
       <label>Amount
         <div>{touched.password&&errors.password&&<p>{errors.password}</p>}
-          <Field type="password" name="password" placeholder="amount" /></div>
+          <Field type="number" name="password" placeholder="Amount" /></div>
       </label>
 
       <div><Button type="submit" disabled={isSubmitting} >Submit</Button></div>

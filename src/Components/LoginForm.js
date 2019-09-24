@@ -49,7 +49,7 @@ const FormikLoginForm=withFormik( {
 
     } ),
     handleSubmit( values, {resetForm, setSubmitting, setStatus, submitForm}, props ) {
-        axios.post( "https://reqres.in/api/login", values )
+        axios.post( "https://lambda-webpt-rta-api.herokuapp.com/api/auth/login", values )
 
             .then( ( res ) => {
                 const userInfo=res.data.user.token||res.data.token;

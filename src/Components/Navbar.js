@@ -9,10 +9,10 @@ const NavBar=() => {
    return (
       <div>
          <h1>Receipt Tracker</h1>
-            <Link to="/">Home</Link>
+            {/* <Link to="/">Home</Link>
             <Link to="/signup">New User</Link>
             <Link to="/">Existing User Login</Link>
-            <Link to="/upload">About Us</Link>
+            <Link to="/upload">About Us</Link> */}
       </div>
 
 

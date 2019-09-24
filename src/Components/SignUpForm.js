@@ -61,9 +61,9 @@ const FormikSignupForm=withFormik( {
     if( emails&&emails.includes( `${values.email}` ) ) {
       setErrors( {email: "That email is already taken"} );
     } else {
-      axios.post( "https://reqres.in/api/register", values )
+      axios.post( "https://lambda-webpt-rta-api.herokuapp.com/api/auth/register", values )
         .then( res => {
-          console.log( res, ",`${res.data}`", `${res.data}` ); // Data was created successfully and logs to console
+          console.log( res, ",`${res.data}`", `${res.data}` ); 
            localStorage.setItem("token",res.data.user.token||res.data.token);
           resetForm();
           setSubmitting( false );
@@ -72,7 +72,7 @@ const FormikSignupForm=withFormik( {
 
         } )
         .catch( err => {
-          console.error( err ); // There was an error creating the data and logs to console
+          console.error( err ); 
           setSubmitting( false );
         } );
     }
