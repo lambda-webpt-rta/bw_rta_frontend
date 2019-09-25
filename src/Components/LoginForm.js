@@ -1,6 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
+import {Button} from 'reactstrap';
+import {Link} from "react-router-dom";
+
+
 class Login extends React.Component {
     constructor(props) {
         super(props)
@@ -31,18 +35,19 @@ class Login extends React.Component {
         const { username, password } = this.state
         const { isLoading, errorMessage } = this.props
         return (
-      <div class="jumbotron">
-      <h3>Sign in </h3>
-            <form class="form-inline" onSubmit={this.Login}>
+      <div>
+            <form onSubmit={this.Login}>
                 {errorMessage && <p className="error">{errorMessage}</p>}
-                
-                <input className="form__input" type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange} />
-                <br /> <br />
-                <input className="form__input"  type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange} /><br />
-                <button class="btn btn-success" type="submit">Login</button>
+                <h5>Username</h5>
+                <input type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange} />
+                <h5>Password</h5>
+                <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange} /><br />
+                <Button type="submit">Login</Button>
+                <h2>New to Receipt Tracker?</h2>
+                <Link to="/login">Register for an account</Link>
             </form>
       </div>
         )
     }
 }
-export default withRouter(Login);
+export default withRouter(Login); 

@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <img src = 'http://digitalgeek.biz/wp-content/uploads/2017/08/icons_to_rasterize_0008_vector-smart-object.png' />
       <Navbar />
-      <Route path="/signup" component={FormikSignupForm} />
+      <Route path="/signup" component={LoginForm} /> 
       <PrivateRoute exact path="/" component={DashBoard} />
-      <Route path="/login" component={LoginForm} />
-      <PrivateRoute path="/upload" component={UploadForm} />
+      <Route path="/login" component={FormikSignupForm} />
+      <Route path="/upload" component={UploadForm} />
       <Faqs />
     </div>
   );
