@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 import LoginForm from './Components/LoginForm';
 import FormikSignupForm from './Components/SignUpForm';
 import Navbar from './Components/Navbar';
-import DashBoard from './Components/Dashboard';
+import Dashboard from './Components/Dashboard';
 import UploadForm from './Components/UploadForm';
 import Faqs from './Components/Faqs';
 import PrivateRoute from './Components/PrivateRoute';
@@ -18,7 +18,8 @@ function App() {
       <Route exact path="/" component={LoginForm} />
       <Route path="/login" component={LoginForm} />
       <Route path="/upload" component={UploadForm} /> 
-      <Faqs />
+      <Route path="/dashboard" component={Dashboard} /> 
+      {/* <Faqs /> */}
     </div>
   );
 }

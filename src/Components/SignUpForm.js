@@ -6,19 +6,12 @@ import {Button,Label} from 'reactstrap';
 import {Link} from "react-router-dom";
 import {axiosWithAuth} from './../auth/axiosWithAuth';
 
-
 const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
   const initialUser={email: '', password: '', username: '', }
   const [newUser, setNewUser]=useState( initialUser );
 
-
-
-
   return (
     <Form >
-
-
-      
         <h5>Username</h5>
         <div>{touched.username&&errors.username&&<p>{errors.username}</p>}
           <Field type="username" name="username" placeholder="username" /></div>
@@ -36,8 +29,6 @@ const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
     </Form>
   );
 }
-
-
 const FormikSignupForm=withFormik( {
   mapPropsToValues: ( props ) => {
     return {
