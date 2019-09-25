@@ -16,8 +16,8 @@ function App() {
       <Navbar />
       <Route path="/signup" component={FormikSignupForm} />
       <PrivateRoute exact path="/" component={DashBoard} />
-      <PrivateRoute path="/login" component={LoginForm} />
-      <Route path="/upload" component={UploadForm} />
+      <Route path="/login" component={LoginForm} />
+      <PrivateRoute path="/upload" component={UploadForm} />
       <Faqs />
     </div>
   );
