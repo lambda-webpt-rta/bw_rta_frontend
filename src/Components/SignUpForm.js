@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import {Button,Label} from 'reactstrap';
 import {Link} from "react-router-dom";
+import {axiosWithAuth} from './../auth/axiosWithAuth';
 
 
 const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
@@ -60,8 +61,8 @@ const FormikSignupForm=withFormik( {
   handleSubmit( values, {resetForm, setErrors, setSubmitting, setStatus, submitForm}, emails ) {
     if( emails&&emails.includes( `${values.email}` ) ) {
       setErrors( {email: "That email is already taken"} );
-    } else {
-      axios.post( "https://lambda-webpt-rta-api.herokuapp.com/api/auth/register", values )
+    } else{
+      axiosWithAuth.post( "https://lambda-webpt-rta-api.herokuapp.com/api/auth/register", values )
         .then( res => {
           console.log( res, ",`${res.data}`", `${res.data}` ); 
            localStorage.setItem("token",res.data.user.token||res.data.token);
