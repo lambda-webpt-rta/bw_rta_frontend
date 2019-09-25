@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import {Button,Label} from 'reactstrap';
 import LoginForm from './LoginForm';
+import {axiosWithAuth} from './../auth/axiosWithAuth';
 
 
 const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
@@ -71,7 +72,7 @@ const FormikSignupForm=withFormik( {
     if( emails&&emails.includes( `${values.email}` ) ) {
       setErrors( {email: "That email is already taken"} );
     } else {
-      axios.post( "https://reqres.in/api/register", values )
+      axiosWithAuth().post( "https://reqres.in/api/register", values )
         .then( res => {
           console.log( res, ",`${res.data}`", `${res.data}` ); 
            localStorage.setItem("token",res.data.user.token||res.data.token);
