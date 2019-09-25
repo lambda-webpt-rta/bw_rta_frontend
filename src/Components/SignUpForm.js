@@ -31,7 +31,7 @@ const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
         <br/>
       <div><Button type="submit" disabled={isSubmitting} >Register</Button></div>
       <h2>Already have an account?</h2>
-                <Link to="/signup">Login</Link>
+                <Link to="/login">Login</Link>
 
     </Form>
   );

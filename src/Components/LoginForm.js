@@ -44,7 +44,7 @@ class Login extends React.Component {
                 <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange} /><br />
                 <Button type="submit">Login</Button>
                 <h2>New to Receipt Tracker?</h2>
-                <Link to="/login">Register for an account</Link>
+                <Link to="/signup">Register for an account</Link>
             </form>
       </div>
         )
