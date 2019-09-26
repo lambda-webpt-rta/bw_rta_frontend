@@ -5,7 +5,9 @@ import axios from 'axios';
 import {Button,Label} from 'reactstrap';
 import LoginForm from './LoginForm';
 import {axiosWithAuth} from './../auth/axiosWithAuth';
+import DropZone from './Upload/DropZone';
 import Jumbo2 from './Jumbo2';
+
 
 
 const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
@@ -45,8 +47,11 @@ const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
       <label>Amount
         <div>{touched.password&&errors.password&&<p>{errors.password}</p>}
           <Field type="number" name="password" placeholder="Amount" /></div>
-      </label>
+          <div>
+<DropZone/>
 
+          </div>
+      </label>
       <div><Button type="submit" disabled={isSubmitting} >Submit</Button></div>
 
     </Form>
