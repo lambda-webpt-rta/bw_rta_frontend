@@ -6,6 +6,9 @@ import {Button,Label} from 'reactstrap';
 import LoginForm from './LoginForm';
 import {axiosWithAuth} from './../auth/axiosWithAuth';
 import DropZone from './Upload/DropZone';
+import Jumbo2 from './Jumbo2';
+
+
 
 const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
   const initialUser={email: '', password: '', username: '', }
@@ -15,7 +18,9 @@ const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
 
 
   return (
+    
     <Form >
+            <Jumbo2 />
             <select
         name="email"
         value={values.color}
