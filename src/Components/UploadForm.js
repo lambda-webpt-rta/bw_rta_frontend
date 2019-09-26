@@ -5,6 +5,7 @@ import axios from 'axios';
 import {Button,Label} from 'reactstrap';
 import LoginForm from './LoginForm';
 import {axiosWithAuth} from './../auth/axiosWithAuth';
+import Jumbo2 from './Jumbo2';
 
 
 const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
@@ -15,7 +16,9 @@ const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
 
 
   return (
+    
     <Form >
+            <Jumbo2 />
             <select
         name="email"
         value={values.color}
