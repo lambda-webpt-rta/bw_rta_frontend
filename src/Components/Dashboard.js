@@ -1,11 +1,11 @@
 import React from 'react';
 import Jumbo from './Jumbo';
-
+import Search from './Search'
 const Dashboard = () => {
   return (
     <div className='receipt-card'>
     <Jumbo />
-
+<Search/>
     <h2>Receipt #1</h2>
      <h3>11/14/2016</h3>
      <h3>Food</h3>
