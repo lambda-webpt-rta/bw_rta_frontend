@@ -14,9 +14,6 @@ const UploadForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
   const initialUser={email: '', password: '', username: '', }
   const [newUser, setNewUser]=useState( initialUser );
 
-
-
-
   return (
     
     <Form >
