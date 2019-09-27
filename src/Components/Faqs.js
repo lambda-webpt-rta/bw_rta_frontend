@@ -1,35 +1,43 @@
-import React, { Component } from 'react';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
-
-class Faqs extends Component {
-  constructor(props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = { collapse: false };
-  }
-
-  toggle() {
-    this.setState(state => ({ collapse: !state.collapse }));
-  }
-
-  render() {
+import React from 'react';
+ 
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemHeading,
+    AccordionItemPanel,
+    AccordionItemButton,
+} from 'react-accessible-accordion';
+ 
+// Demo styles, see 'Styles' section below for some notes on use.
+import 'react-accessible-accordion/dist/fancy-example.css';
+ 
+export default function Faqs() {
     return (
-      <div>
-          <h1>FAQS</h1>
-        <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>Why should I upload my reciepts?</Button>
-        <Collapse isOpen={this.state.collapse}>
-          <Card>
-            <CardBody>
-            Anim pariatur cliche reprehenderit,
-             enim eiusmod high life accusamus terry richardson ad squid. Nihil
-             anim keffiyeh helvetica, craft beer labore wes anderson cred
-             nesciunt sapiente ea proident.
-            </CardBody>
-          </Card>
-        </Collapse>
-      </div>
+        <Accordion>
+            <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                        Why would I need to save my receipts?
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    <p>
+                        Receipt Tracker is perfect when there is need to refer to expenses at a later date. Need to track business expenses for tax time? We've got you covered. 
+                    </p>
+                </AccordionItemPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                        What are the benefits of going paperless?
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    <p>
+                        Besides being Marie Kondo Tidy Up friendly, you can recycle all of that paper and who doesn't want to help Planet Earth. Amirite?
+                    </p>
+                </AccordionItemPanel>
+            </AccordionItem>
+        </Accordion>
     );
-  }
 }
-
-export default Faqs;
