@@ -34,7 +34,6 @@ const onChangeHandler =  event => {
                     placeholder="Type something to search"
                 />
                
-
                 {receipts&&receipts.length  > 0  ?  <Receipts list={receipts} />:<h1>There's no receipts</h1>}
             </div>
     )
