@@ -32,3 +32,5 @@ class Upload extends Component {
       </div>
     );
   }
+
+}

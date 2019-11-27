@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import {Button} from 'reactstrap';
 import {Link} from "react-router-dom";
+import Faqs from './Faqs';
 
 class Login extends React.Component {
     constructor(props) {
@@ -45,6 +46,7 @@ class Login extends React.Component {
                 <h2>New to Receipt Tracker?</h2>
                 <Link to="/signup">Register for an account</Link>
             </form>
+            <Faqs />
       </div>
         )
     }

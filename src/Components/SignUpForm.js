@@ -3,8 +3,7 @@ import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import {Button,Label} from 'reactstrap';
-import {Link} from "react-router-dom";
-
+import {Link, withRouter} from "react-router-dom";
 
 const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
   const initialUser={email: '', password: '', username: '', }
@@ -25,8 +24,8 @@ const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
       <div><Button type="submit" disabled={isSubmitting} >Register</Button></div>
       <h2>Already have an account?</h2>
                 <Link to="/login">Login</Link>
-
     </Form>
+    
   );
 }
 const FormikSignupForm=withFormik( {
@@ -61,7 +60,7 @@ const FormikSignupForm=withFormik( {
           setSubmitting( false );
           submitForm( false )
           setStatus( res.data )
-
+          .then(() => {this.props.history.push('/dashboard')})
         } )
         .catch( err => {
           console.error( err ); 
