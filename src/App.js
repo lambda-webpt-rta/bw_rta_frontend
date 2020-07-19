@@ -17,9 +17,10 @@ function App() {
       <Route path="/signup" component={FormikSignupForm} /> 
       <Route exact path="/" component={LoginForm} />
       <Route path="/login" component={LoginForm} />
-      <Route path="/upload" component={UploadForm} /> 
-      <Route path="/dashboard" component={Dashboard} /> 
+      <PrivateRoute path="/upload" component={UploadForm} /> 
+      <PrivateRoute path="/dashboard" component={Dashboard} /> 
       {/* <Faqs /> */}
+   
     </div>
   );
 }

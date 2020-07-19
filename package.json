@@ -8,11 +8,17 @@
         "downshift": "^3.3.2",
         "formik": "^1.5.8",
         "react": "^16.9.0",
+        "react-compose": "^2.0.0",
         "react-dom": "^16.9.0",
         "react-dropzone": "^10.1.9",
+        "react-redux": "^7.1.1",
+        "react-router": "^5.1.1",
         "react-router-dom": "5.0.1",
         "react-scripts": "3.1.1",
         "reactstrap": "^8.0.1",
+        "recompose": "^0.30.0",
+        "redux": "^4.0.4",
+        "use-react-router": "^1.0.7",
         "yup": "^0.27.0"
     },
     "scripts": {

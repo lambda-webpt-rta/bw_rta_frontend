@@ -2,14 +2,15 @@ import React, {useState, useEffect} from "react";
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import {compose} from 'recompose'
 import {Button,Label} from 'reactstrap';
-import {Link} from "react-router-dom";
+import {Link,withRouter,Redirect,Route} from "react-router-dom"; 
+import useReactRouter from "use-react-router";
 
-
-const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) => {
+const SignUpForm=( {values, errors, touched, isSubmitting, status}, props ) => {
   const initialUser={email: '', password: '', username: '', }
   const [newUser, setNewUser]=useState( initialUser );
-
+  const {location,history,match}=useReactRouter();
   return (
     <Form >
         <h5>Username</h5>
@@ -29,12 +30,13 @@ const SignUpForm=( {values, errors, touched, isSubmitting, status, }, props ) =>
     </Form>
   );
 }
-const FormikSignupForm=withFormik( {
-  mapPropsToValues: ( props ) => {
+const FormikSignupForm=compose(withRouter,withFormik( {
+  mapPropsToValues: (props) => {
     return {
       email: props.email||'',
       password: props.password||'',
       username: props.username||'',
+      history:props.history
     }
     console.log(props)
   },
@@ -49,27 +51,30 @@ const FormikSignupForm=withFormik( {
       .required( "Password is required" )
   } ),
 
-  handleSubmit( values, {resetForm, setErrors, setSubmitting, setStatus, submitForm}, emails ) {
+  handleSubmit( values, {resetForm, setErrors, setSubmitting, setStatus, submitForm}, emails,history) {
+  
     if( emails&&emails.includes( `${values.email}` ) ) {
       setErrors( {email: "That email is already taken"} );
     } else{
       axios.post( "https://lambda-webpt-rta-api.herokuapp.com/api/auth/register", values )
         .then( res => {
-          console.log( res, ",`${res.data}`", `${res.data}` ); 
+          console.log( history,res, ",`${res.data}`", `${res.data}` ); 
            localStorage.setItem("token",res.data.user.token||res.data.token);
           resetForm();
           setSubmitting( false );
-          submitForm( false )
-          setStatus( res.data )
-
-        } )
-        .catch( err => {
+          submitForm( false );
+          setStatus( res.data );
+          
+        })
+         .then(res=>{window.alert(`successfully registered ${values.username} with password ${values.password}`)
+         history.push('/login');
+                    })  
+         .catch( err => {
           console.error( err ); 
           setSubmitting( false );
         } );
     }
   }
-} )( SignUpForm );
-
-export default FormikSignupForm;
+}),)(SignUpForm)
+export default withRouter(FormikSignupForm);
 

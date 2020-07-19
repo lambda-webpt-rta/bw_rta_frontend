@@ -77,7 +77,7 @@ const FormikSignupForm=withFormik( {
     if( emails&&emails.includes( `${values.email}` ) ) {
       setErrors( {email: "That email is already taken"} );
     } else {
-      axiosWithAuth().post( "https://reqres.in/api/register", values )
+      axios.post(`https://lambda-webpt-rta-api.herokuapp.com/api/upload/`,values)
         .then( res => {
           console.log( res, ",`${res.data}`", `${res.data}` ); 
            localStorage.setItem("token",res.data.user.token||res.data.token);
